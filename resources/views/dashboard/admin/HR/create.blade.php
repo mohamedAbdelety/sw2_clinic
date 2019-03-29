@@ -129,29 +129,13 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <select class="form-control show-tick">
-                            <option>male</option>
-                            <option>female</option>
-                        </select>
+                            {!! Form::select('gender',['male'=>'male','female'=>'female'],old('gender'),['class'=>'form-control show-tick']) !!}
                     </div>
                     <div class="col-md-6">
-                        <select class="form-control show-tick">
-                            <option>Friday</option>
-                            <option>Saturday</option>
-                            <option>Sunday</option>
-                            <option>Monday</option>
-                            <option>Tuesday</option>
-                            <option>Wednesday</option>
-                            <option>Thursday</option>
-                        </select>
+                        {!! Form::select('weekend',days(),old('weekend'),['class'=>'form-control show-tick']) !!}
                     </div>
                     <div class="col-md-6">
-                        <select class="form-control show-tick">
-                            <option>Team Leader</option>
-                            <option>Manager</option>
-                            <option>Member</option>
-                            <option>Under Testing</option>
-                        </select>
+                        {!! Form::select('position',position(),old('position'),['class'=>'form-control show-tick']) !!}
                     </div>
                    
                         {!! Form::submit("Save HR",['class'=>'btn btn-primary']) !!}

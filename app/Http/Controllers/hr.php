@@ -34,7 +34,16 @@ class hr extends Controller
      */
     public function store(Request $request)
     {
-        dd(request());
+
+
+
+        $data = $this->validate($request,[
+            'email' => 'required|max:10',
+            'name' =>'required',
+        ]);
+
+
+        dd(request('position'));
     }
 
     /**

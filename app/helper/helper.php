@@ -28,6 +28,29 @@
   	return $admin;
   }
 
+  function days(){
+    return [
+        'friday'=>'Friday',
+        'saturday'=>'Saturday',
+        'sunday'=>'Sunday',
+        'monday'=>'Monday',
+        'tuesday'=>'Tuesday',
+        'wednesday'=>'Wednesday',
+        'thursday'=>'Thursday',
+    ];
+  }
+
+  function  position(){
+
+     return [
+        'Team Leader'=>'Team Leader',
+        'Manager'=>'Manager',
+        'Member'=>'Member',
+        'Under Testing'=>'Under Testing'
+    ];
+  }
+
+
 
 
 
