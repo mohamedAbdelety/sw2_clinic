@@ -22,5 +22,12 @@
   		Route::post('/change/account','staff@change_account');
   		Route::post('/change/image','staff@change_image');
 		
+  		// controll FR
+  		Route::resource('/controll/fr','fr');
+  		Route::delete('fr/destory/all','fr@destory_all');
+  		// controll Doctor
+  		Route::resource('/controll/doctor','doctors');
+  		Route::delete('doctors/destory/all','doctors@destory_all');
+
 	});
 ?>
