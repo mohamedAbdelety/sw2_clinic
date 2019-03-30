@@ -211,16 +211,9 @@
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade in" id="change_image">
                                         {{Form::open(['url' => 'dashboard/admin/change/image','method'=>'POST','class'=>'form-horizontal dropzone','id'=>'frmFileUpload','files'=>true])}}
-                                            <div class="dz-message">
-                                                <div class="drag-icon-cph">
-                                                    <i class="material-icons">touch_app</i>
-                                                </div>
-                                                <h3>Drop image here or click to upload.</h3>
-                                                <em>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</em>
-                                            </div>
-                                            <div class="fallback"> -->
+                                            
                                                 <input name="image" type="file"/>
-                                            </div>                                
+                                                                           
                                         {{Form::close()}}
                                         <br>
                                         {!! Form::submit("Change image",['class'=>'btn btn-danger col-sm-offset-5','form'=>'frmFileUpload']) !!}
@@ -234,8 +227,26 @@
         </div>
 
 
+
+        <form action="upload.php" class="dropzone" id="dropzoneFrom">
+
+   </form>
+   
+    
+   </form>
+   <br />
+   <br />
+   <div align="center">
+    <button type="button" class="btn btn-info" id="submit-all">Upload</button>
+   </div>
+   <br />
+   <br />
+   <div id="preview"></div>
+
 @endsection
 
 
 @section('fotter')
+  
+
 @endsection
