@@ -32,10 +32,20 @@
 	            </a>
 	            <ul class="ml-menu">
 	                <li>
-	                    <a href="pages/widgets/cards/basic.html">Add FR</a>
+	                    <a href="{{url('/dashboard/admin/controll/fr/create')}}">Add FR</a>
 	                </li>
 	                <li>
-	                    <a href="pages/widgets/cards/colored.html">Manage FR</a>
+	                    <a href="{{url('/dashboard/admin/controll/fr')}}">Manage FR</a>
+	                </li>
+	            </ul>
+	        </li>
+	        <li>
+	            <a href="javascript:void(0);" class="menu-toggle">
+	                <span>Doctor</span>
+	            </a>
+	            <ul class="ml-menu">
+	                <li>
+	                    <a href="{{url('/dashboard/admin/controll/doctor/create')}}">Add Doctor</a>
 	                </li>
 	            </ul>
 	        </li>

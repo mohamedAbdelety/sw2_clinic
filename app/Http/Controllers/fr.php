@@ -6,17 +6,17 @@ use Illuminate\Http\Request;
 use App\User;
 use Hash;
 use App\Admin;
-use App\DataTables\HRDatatable;
-class hr extends Controller
+use App\DataTables\FRDatatable;
+class fr extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(HRDatatable $datatable)
+    public function index(FRDatatable $datatable)
     {
-        return $datatable->render('dashboard.admin.hr.index');
+        return $datatable->render('dashboard.admin.fr.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class hr extends Controller
      */
     public function create()
     {
-        return view('dashboard.admin.hr.create');
+        return view('dashboard.admin.fr.create');
     }
 
     /**
@@ -50,8 +50,7 @@ class hr extends Controller
             'end_at' => 'sometimes|nullable',
             'birthDate' => 'required',
             'weekend'=>'required',
-            'gender'=>'required',
-
+            'gender' => 'required',
         ]);
         
         
@@ -67,11 +66,11 @@ class hr extends Controller
             'position' => 'required',
             'salary'=>'required|numeric|min:500|max:1000000',
         ]);
-        $admin_data['role'] = 2;
+        $admin_data['role'] = 3;
         $admin_data['staff_id'] = $id;
         Admin::create($admin_data);
         session()->flash('add_success',"added is done");
-        return redirect('/dashboard/admin/controll/hr');        
+        return redirect('/dashboard/admin/controll/fr');        
     }
 
     /**
@@ -93,10 +92,10 @@ class hr extends Controller
      */
     public function edit($id){
 
-        $hr =  Admin::join('staff','staff.id', '=', 'admins.staff_id')->where('staff.id',$id)->select('admins.id as adminID','staff.id',
+        $fr =  Admin::join('staff', 'staff.id',   '=', 'admins.staff_id')->where('staff.id',$id)->select('admins.id as adminID','staff.id',
             'staff.email','staff.name','staff.mobile','staff.address','staff.gender','staff.birthDate','staff.start_at','staff.end_at','staff.weekend','admins.salary','admins.position'
         )->first();
-        return view('dashboard.admin.hr.edit',compact('hr'));
+        return view('dashboard.admin.fr.edit',compact('fr'));
     }
 
     public function update($id){
@@ -110,7 +109,7 @@ class hr extends Controller
             'end_at' => 'sometimes|nullable',
             'birthDate' => 'required',
             'weekend'=>'required',
-            'gender'=>'required',
+            'gender' => 'required',
 
         ]);
         $date_arr = explode("/",$data['birthDate']);
@@ -125,7 +124,7 @@ class hr extends Controller
         ]);
         Admin::where('id', request('adminID'))->update($data2);
         session()->flash('update_success','update is done');
-        return redirect('/dashboard/admin/controll/hr'); 
+        return redirect('/dashboard/admin/controll/fr'); 
     }
 
     /**
@@ -136,7 +135,7 @@ class hr extends Controller
      */
     public function destroy($id){
         $hr = User::find($id)->delete();
-        session()->flash('delete_success',"Hr is deleted");
-        return redirect('dashboard/admin/controll/hr'); 
+        session()->flash('delete_success',"Fr is deleted");
+        return redirect('dashboard/admin/controll/fr'); 
     }
 }
