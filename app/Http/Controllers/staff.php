@@ -73,11 +73,11 @@ class staff extends Controller
 
 
 	public function change_image(){
-		
-		$data = ['image'=>request('image')];
+		$data = $this->validate(request(),[
+            'image' => 'required|image'
+    	]);
 		if(request()->has('image')){
             if(Auth::user()->image != null){
-
             	$data['image'] = Up::single_upload(['delete_file'=>Auth::user()->image,'new_name'=> true,'path'=>'staff_img','file'=>'image']);
             }else{
            		 $data['image'] = Up::single_upload(['new_name'=> true,'path'=>'staff_img','file'=>'image']); 		

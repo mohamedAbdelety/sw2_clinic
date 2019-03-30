@@ -241,10 +241,10 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
+                    &copy; {{ date("Y", strtotime(now())) }} Clinic  - <a target="blank" href="https://github.com/mohamedAbdelety/sw2_clinic">Abdelaty Team</a>.
                 </div>
                 <div class="version">
-                    <b>Version: </b> 1.0.5
+                    <b>Version: </b> 1.0.0
                 </div>
             </div>
             <!-- #Footer -->

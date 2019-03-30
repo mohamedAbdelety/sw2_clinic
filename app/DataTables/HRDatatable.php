@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 use DB;
-use App\User;
+use App\Admin;
 use Yajra\DataTables\Services\DataTable;
 
 class HRDatatable extends DataTable
@@ -15,7 +15,9 @@ class HRDatatable extends DataTable
      */
     public function dataTable($query)
     {
-        return datatables($query);
+        return datatables($query)
+            ->addColumn('action', 'dashboard.admin.hr.buttons.btn')
+            ->rawColumns(['action']);
     }
 
     /**
@@ -26,7 +28,9 @@ class HRDatatable extends DataTable
      */
     public function query()
     {
-       return User::query();
+        //return DB::table('admins')->select('league_name')->join('staff', 'staff.id', '=', 'admins.staff_id')->where('admins.role', '2')->get();
+        return Admin::join('staff', 'staff.id',   '=', 'admins.staff_id')->where('admins.role','2')
+        ->get();
         //from me
         
        
@@ -112,19 +116,40 @@ class HRDatatable extends DataTable
         return [
             
             [
+                'name'=>'id',
+                'data'=>'id',
+                'title'=>"#",
+            ],
+            [
                 'name'=>'email',
                 'data'=>'email',
-                'title'=> trans('admin.adminmail_title') 
+                'title'=> "Email", 
             ],
             [
                 'name'=>'name',
                 'data'=>'name',
-                'title'=> trans('admin.name_title')  
+                'title'=> "Name"  
+            ],
+           
+            [
+                'name'=>'mobile',
+                'data'=>'mobile',
+                'title'=> 'Mobile' 
+            ],
+            [
+                'name'=>'gender',
+                'data'=>'gender',
+                'title'=> 'Gender' 
+            ],
+             [
+                'name'=>'created_at',
+                'data'=>'created_at',
+                'title'=> 'Created_at' 
             ],
             [
                 'name'=>'action',
                 'data'=>'action',
-                'title'=>trans('admin.action'),
+                'title'=>'controll',
                 'exportable'=>false,
                 'printable'=>false,
                 'orderable'=>false,

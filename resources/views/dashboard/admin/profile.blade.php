@@ -25,7 +25,11 @@
                         <div class="profile-header">&nbsp;</div>
                         <div class="profile-body">
                             <div class="image-area">
-                                <img src="{{url('dashboard/images/user.png')}}" alt="AdminBSB - Profile Image" />
+                                @if(Auth::user()->image != null)
+                                    <img src="{{ Storage::url(Auth::user()->image) }}" alt="AdminBSB - Profile Image" style="width:100px;height:100px" />
+                                @else
+                                    <img src="{{url('dashboard/images/user.png')}}" alt="AdminBSB - Profile Image" style="width:100px;height:100px" />
+                                @endif
                             </div>
                             <div class="content-area">
                                 <h4>{{Auth::user()->name}}</h4>
@@ -214,16 +218,12 @@
                                                 <h3>Drop image here or click to upload.</h3>
                                                 <em>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</em>
                                             </div>
-                                            <div class="fallback">
+                                            <div class="fallback"> -->
                                                 <input name="image" type="file"/>
                                             </div>                                
                                         {{Form::close()}}
-                                        <br><br>
-                                        <div class="form-group">
-                                                <div class="col-sm-offset-5 col-sm-9">
-                                                    {!! Form::submit("Change image",['class'=>'btn btn-danger','form'=>'frmFileUpload']) !!}
-                                                </div>
-                                        </div>
+                                        <br>
+                                        {!! Form::submit("Change image",['class'=>'btn btn-danger col-sm-offset-5','form'=>'frmFileUpload']) !!}
                                     </div>
                                 </div>
                             </div>
@@ -238,5 +238,4 @@
 
 
 @section('fotter')
-
 @endsection

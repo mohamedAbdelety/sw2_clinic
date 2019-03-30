@@ -90,21 +90,40 @@ class hr extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+
+        $hr =  Admin::join('staff', 'staff.id',   '=', 'admins.staff_id')->where('staff.id',$id)->select('admins.id as adminID','staff.id',
+            'staff.email','staff.name','staff.mobile','staff.address','staff.gender','staff.birthDate','staff.start_at','staff.end_at','staff.weekend','admins.salary','admins.position'
+        )->first();
+        return view('dashboard.admin.hr.edit',compact('hr'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update($id){
+
+        $data = $this->validate(request(),[
+            'email' => 'required|email|unique:staff,email,'.$id,
+            'name' =>'required|max:30|min:4',
+            'mobile' => 'sometimes|nullable',
+            'address'=>'sometimes|nullable|min:5|max:50',
+            'start_at' => 'sometimes|nullable',
+            'end_at' => 'sometimes|nullable',
+            'birthDate' => 'required',
+            'weekend'=>'required',
+
+        ]);
+        $date_arr = explode("/",$data['birthDate']);
+        $data['birthDate'] =  $date_arr[2]."-".$date_arr[1]."-".$date_arr[0];
+        User::where('id',$id)->update($data);
+
+
+        $data2 = $this->validate(request(),[
+            'salary' => 'required|numeric|min:500',
+            'position' =>'required',
+            
+        ]);
+        Admin::where('id', request('adminID'))->update($data2);
+        session()->flash('update_success','update is done');
+        return redirect('/dashboard/admin/controll/hr'); 
     }
 
     /**
@@ -113,8 +132,9 @@ class hr extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id){
+        $hr = User::find($id)->delete();
+        session()->flash('delete_success',"Hr is deleted");
+        return redirect('dashboard/admin/controll/hr'); 
     }
 }
