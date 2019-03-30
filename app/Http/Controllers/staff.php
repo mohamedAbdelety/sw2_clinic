@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Hash;
 use App\User;
-
+use Up;
 class staff extends Controller
 {
 	public function login_post(Request $req){
@@ -35,4 +35,58 @@ class staff extends Controller
     	Auth::guard('web')->logout();
     	return redirect('dashboard/login');
 	}
+
+	public function change_password(){
+		$data = $this->validate(request(),[
+			'oldpassword'=>'required',
+			'password' => 'required|string|min:6|confirmed',
+		]);
+		$naw_data = ['password'=>Hash::make(request('password'))];
+		if (Hash::check(request('oldpassword'), Auth::user()->password)){
+    		User::where('id',Auth::user()->id)->update($naw_data);
+    		session()->flash('update_success',trans('admin.update_success_msg'));
+		}else{
+    		session()->flash('update_success','enter old password correct');
+		}		
+        return back();
+	}
+
+	public function change_account(Request $req){
+		$data = $this->validate(request(),[
+			'name'=>'required|min:4',
+			'email' => 'required|email|unique:staff,email,'.Auth::user()->id,
+			'birthDate' => 'required',
+			'mobile'=>'required',
+			'address'=>'required|min:4',
+		]);
+		$date_arr = explode("/",$data['birthDate']);
+        $data['birthDate'] =  $date_arr[2]."-".$date_arr[1]."-".$date_arr[0];
+		$check = $req->has('check') && $req->check == 1 ?true:false;
+		if ($check){
+    		User::where('id',Auth::user()->id)->update($data);
+    		session()->flash('update_success',trans('admin.update_success_msg'));
+		}else{
+    		session()->flash('update_success','please agree on term');
+		}		
+        return back();
+	}
+
+
+	public function change_image(){
+		
+		$data = ['image'=>request('image')];
+		if(request()->has('image')){
+            if(Auth::user()->image != null){
+
+            	$data['image'] = Up::single_upload(['delete_file'=>Auth::user()->image,'new_name'=> true,'path'=>'staff_img','file'=>'image']);
+            }else{
+           		 $data['image'] = Up::single_upload(['new_name'=> true,'path'=>'staff_img','file'=>'image']); 		
+            }
+            User::where('id',Auth::user()->id)->update($data);
+    		session()->flash('update_success',trans('admin.update_success_msg'));
+        }
+        return back();	
+	}
+
+
 }

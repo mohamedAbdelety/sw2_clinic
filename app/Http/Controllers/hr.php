@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\User;
+use Hash;
+use App\Admin;
+use App\DataTables\HRDatatable;
 class hr extends Controller
 {
     /**
@@ -11,9 +14,9 @@ class hr extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(HRDatatable $datatable)
     {
-        //
+        return $datatable->render('dashboard.admin.hr.index');
     }
 
     /**
@@ -37,13 +40,37 @@ class hr extends Controller
 
 
 
-        $data = $this->validate($request,[
-            'email' => 'required|max:10',
-            'name' =>'required',
+        $data = $this->validate(request(),[
+            'email' => 'required|email|unique:staff',
+            'name' =>'required|max:30|min:4',
+            'password' =>'required|min:6|max:20',
+            'mobile' => 'sometimes|nullable',
+            'address'=>'sometimes|nullable|min:5|max:50',
+            'start_at' => 'sometimes|nullable',
+            'end_at' => 'sometimes|nullable',
+            'birthDate' => 'required',
+            'weekend'=>'required',
+
         ]);
+        
+        
 
 
-        dd(request('position'));
+        $date_arr = explode("/",$data['birthDate']);
+        $data['birthDate'] =  $date_arr[2]."-".$date_arr[1]."-".$date_arr[0];
+        $data['password'] = Hash::make(request('password'));
+        $data['role'] = 1;
+        $id = User::create($data)->id;
+
+        $admin_data = $this->validate(request(),[
+            'position' => 'required',
+            'salary'=>'required|numeric|min:500|max:1000000',
+        ]);
+        $admin_data['role'] = 2;
+        $admin_data['staff_id'] = $id;
+        Admin::create($admin_data);
+        session()->flash('add_success',"added is done");
+        return redirect('/dashboard/admin/controll/hr');        
     }
 
     /**

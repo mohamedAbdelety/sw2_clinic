@@ -15,6 +15,13 @@
   	}
   }
 
+  function validate_img($exte = null){
+    if($exte == null){
+      return 'image|mimes:jpg,jpeg,png,gif';
+    }else{
+      return 'image|mimes:'.$exte;
+    }
+  }
 
 
   function get_second_role($staff_id){

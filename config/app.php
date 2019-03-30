@@ -232,7 +232,8 @@ return [
         /////////// My package/////////////////////////////////////
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        ///////////////////////////////////////////////////////////
+        /////////////////helper classes/////////////////////////
+        'Up' => App\Http\Controllers\Upload::class,
 
     ],
 

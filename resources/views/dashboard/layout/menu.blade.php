@@ -22,7 +22,7 @@
 	                    <a href="{{url('/dashboard/admin/controll/hr/create')}}">Add HR</a>
 	                </li>
 	                <li>
-	                    <a href="pages/widgets/cards/colored.html">Manage HR</a>
+	                    <a href="{{url('/dashboard/admin/controll/hr')}}">Manage HR</a>
 	                </li>
 	            </ul>
 	        </li>

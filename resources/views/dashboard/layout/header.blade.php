@@ -15,16 +15,18 @@
 	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
 	    <!-- Bootstrap Core Css -->
+	    <!-- Bootstrap Core Css -->
 	    {!! Html::style('dashboard/plugins/bootstrap/css/bootstrap.css') !!}
-
-     	{!! Html::style('dashboard/plugins/node-waves/waves.css') !!}
-	 	{!! Html::style('dashboard/plugins/animate-css/animate.css') !!}
-        {!! Html::style('dashboard/plugins/morrisjs/morris.css') !!}
-	    
-	   
-
-	    <!-- Custom Css -->
-	    
+	    {!! Html::style('dashboard/plugins/node-waves/waves.css') !!}
+	    {!! Html::style('dashboard/plugins/animate-css/animate.css') !!}
+	    {!! Html::style('dashboard/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css') !!}
+	    {!! Html::style('dashboard/plugins/dropzone/dropzone.css') !!}
+	    {!! Html::style('dashboard/plugins/multi-select/css/multi-select.css') !!}
+	    {!! Html::style('dashboard/plugins/jquery-spinner/css/bootstrap-spinner.css') !!}
+	    {!! Html::style('dashboard/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css') !!}
+	    {!! Html::style('dashboard/plugins/bootstrap-select/css/bootstrap-select.css') !!}
+	    {!! Html::style('dashboard/plugins/nouislider/nouislider.min.css') !!}
+	    {!! Html::style('dashboard/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css') !!}
 	    {!! Html::style('dashboard/css/style.css') !!}
 	    {!! Html::style('dashboard/css/themes/all-themes.css') !!}
 	   

@@ -4,8 +4,6 @@
     {!! Html::style('dashboard/plugins/bootstrap-select/css/bootstrap-select.css') !!}
     {!! Html::style('dashboard/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') !!}
     {!! Html::style('dashboard/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css') !!}
-   
-
 @endsection
 
 
@@ -17,9 +15,9 @@
 
 
 @section('content')
-	
+    
 
-	   <div class="card">
+       <div class="card">
            <div class="header">
                 <h2 style="margin-top: 7px;">
                     <i class="material-icons pull-left" style="margin-top: -4px">person_add</i><span class="pull-left" style="margin-left: 10px">ADD HR</span>
@@ -46,7 +44,7 @@
                                 <i class="material-icons">email</i>
                             </span>
                             <div class="form-line">
-                                {!! Form::email('email',old('email'),['class'=>'form-control email']) !!}
+                                {!! Form::text('email',old('email'),['class'=>'form-control email']) !!}
                             </div>
                         </div>
                     </div>  
@@ -57,19 +55,24 @@
                                 <i class="material-icons">vpn_key</i>
                             </span>
                             <div class="form-line">
-                                {!! Form::text('password',old('password'),['class'=>'form-control']) !!}
+                                {!! Form::password('password',['class'=>'form-control']) !!}
                             </div>
                         </div>
                     </div>  
+                   
                     <div class="col-md-12">
                         <b>Birth Date</b>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">date_range</i>
                             </span>
-                            <div class="form-line">
-                                {!! Form::text('birth',old('birth'),['class'=>'form-control date']) !!}
+                                    
+                            <div class="form-group">
+                                <div class="form-line" id="bs_datepicker_container">
+                                    {!! Form::text('birthDate',old('birthDate'),['class'=>'form-control date']) !!}
+                                </div>
                             </div>
+                               
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -79,7 +82,7 @@
                                 <i class="material-icons">phone_iphone</i>
                             </span>
                             <div class="form-line">
-                                {!! Form::text('mobile',old('mobile'),['class'=>'form-control']) !!}
+                                {!! Form::text('mobile',old('mobile'),['class'=>'form-control mobile-phone-number']) !!}
                             </div>
                         </div>
                     </div>
@@ -88,7 +91,7 @@
                         <b>Address</b>
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="material-icons">phone_iphone</i>
+                                <i class="material-icons">location_on</i>
                             </span>
                             <div class="form-line">
                                 {!! Form::text('address',old('address'),['class'=>'form-control']) !!}
@@ -99,32 +102,32 @@
                         <b>Salary</b>
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="material-icons">phone_iphone</i>
+                                <i class="material-icons">euro_symbol</i>
                             </span>
                             <div class="form-line">
                                 {!! Form::number('salary',old('salary'),['class'=>'form-control']) !!}
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <b>Start_at</b>
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="material-icons">phone_iphone</i>
+                                <i class="material-icons">alarm</i>
                             </span>
                             <div class="form-line">
-                                {!! Form::number('start_at',old('start_at'),['class'=>'form-control']) !!}
+                                {!! Form::text('start_at',old('start_at'),['class'=>'form-control time24']) !!}
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <b>End_at</b>
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <i class="material-icons">phone_iphone</i>
+                                <i class="material-icons">alarm</i>
                             </span>
                             <div class="form-line">
-                                {!! Form::number('end_at',old('end_at'),['class'=>'form-control']) !!}
+                                {!! Form::text('end_at',old('end_at'),['class'=>'form-control time24']) !!}
                             </div>
                         </div>
                     </div>
@@ -148,5 +151,9 @@
 
 
 @section('fotter')
+    
 
+    
+
+   
 @endsection
