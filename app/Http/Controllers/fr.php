@@ -134,7 +134,7 @@ class fr extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        $hr = User::find($id)->delete();
+        $fr = User::find($id)->delete();
         session()->flash('delete_success',"Fr is deleted");
         return redirect('dashboard/admin/controll/fr'); 
     }

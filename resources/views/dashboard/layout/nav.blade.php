@@ -214,12 +214,25 @@
                     <img src="{{url('dashboard/images/user.png')}}" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{get_role(Auth::user()->role)}}</div>
+
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1) Admin @endif
+                        @if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2) HR @endif
+                        @if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 3) FR @endif
+                    </div>
                     <div class="email">{{Auth::user()->email}}</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
+                            @if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1)
                             <li><a href="{{url('/dashboard/admin/profile')}}"><i class="material-icons">person</i>Profile</a></li>
+                            @endif
+                            @if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2)
+                            <li><a href="{{url('/dashboard/hr/profile')}}"><i class="material-icons">person</i>Profile</a></li>
+                            @endif
+                            @if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 3)
+                            <li><a href="{{url('/dashboard/fr/profile')}}"><i class="material-icons">person</i>Profile</a></li>
+                            @endif
                             <li role="separator" class="divider"></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>

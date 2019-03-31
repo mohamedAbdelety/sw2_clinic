@@ -33,7 +33,7 @@
                             </div>
                             <div class="content-area">
                                 <h4>{{Auth::user()->name}}</h4>
-                                <p>{{get_role(Auth::user()->role)}}</p>
+                                <p>{{get_role(Auth::user()->role,3)}}</p>
                             </div>
                         </div>
                         <div class="profile-footer">
@@ -114,7 +114,7 @@
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade in" id="profile_settings">
                                        
-                                        {{Form::open(['novalidate'=>'novalidate','id'=>'form_validation','url' => 'dashboard/admin/change/account','method'=>'POST','class'=>'form-horizontal demo-masked-input'])}}
+                                        {{Form::open(['novalidate'=>'novalidate','id'=>'form_validation','url' => 'dashboard/fr/change/account','method'=>'POST','class'=>'form-horizontal demo-masked-input'])}}
                                             <div class="form-group">
                                                 <label for="name" class="col-sm-2 control-label">User name</label>
                                                 <div class="col-sm-10">
@@ -176,7 +176,7 @@
                                         {{ Form::close() }}
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade in" id="change_password_settings">
-                                        {{Form::open(['url' => 'dashboard/admin/change/password','method'=>'POST','class'=>'form-horizontal'])}}
+                                        {{Form::open(['url' => 'dashboard/fr/change/password','method'=>'POST','class'=>'form-horizontal'])}}
                                             <div class="form-group">
                                                 <label for="oldpassword" class="col-sm-3 control-label">Old Password</label>
                                                 <div class="col-sm-9">
@@ -210,7 +210,7 @@
                                         {{ Form::close() }}
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade in" id="change_image">
-                                        {{Form::open(['url' => 'dashboard/admin/change/image','method'=>'POST','class'=>'form-horizontal dropzone','id'=>'frmFileUpload','files'=>true])}}
+                                        {{Form::open(['url' => 'dashboard/fr/change/image','method'=>'POST','class'=>'form-horizontal dropzone','id'=>'frmFileUpload','files'=>true])}}
                                             <!-- <div class="dz-message">
                                                 <div class="drag-icon-cph">
                                                     <i class="material-icons">touch_app</i>
