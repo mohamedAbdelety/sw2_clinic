@@ -1,0 +1,1 @@
+<input type="checkbox" name="hrs[]" class="check_admin" value={{$id}}>

@@ -31,6 +31,9 @@
   		// controll Secretary
   		Route::resource('/controll/secretary','secretaries');
   		Route::delete('secratery/destory/all','doctors@destory_all');
-
+      // controll Employee
+      Route::resource('/controll/employee','employees');
+      Route::delete('employee/destory/all','employees@destory_all');
+      
 	});
 ?>

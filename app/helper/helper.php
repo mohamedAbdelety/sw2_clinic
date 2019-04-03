@@ -47,6 +47,19 @@
     ];
   }
 
+  function titles(){
+    return [
+        'security' => 'security',
+        'nurse' => 'nurse',
+        'office boy' => 'office boy',
+        'cleaning' => 'cleaning',
+        'techniql' => 'techniql',
+        'reception' => 'reception',
+        'call center' => 'call center',
+        'other' => 'other',
+    ];
+  }
+
   function  position(){
 
      return [
