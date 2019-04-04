@@ -15,4 +15,7 @@
   		Route::post('/change/image','staff@change_image');
 
 	});
+
+
+	
 ?>

@@ -5,10 +5,11 @@
     	<meta charset="UTF-8">
     	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
     	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-       	
+       	<meta name="description" content="{{get_settings()->description}}">
+  		<meta name="keywords" content="{{get_settings()->keywords}}">
 
     	<!-- Favicon-->
-	    <link rel="icon" href="favicon.ico" type="image/x-icon">
+	    <link rel="icon" href="{{Storage::url(get_settings()->logo)}}" type="image/x-icon">
 
 	    <!-- Google Fonts -->
 	    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">

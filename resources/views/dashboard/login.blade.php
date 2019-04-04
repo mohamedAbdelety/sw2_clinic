@@ -11,7 +11,7 @@
 	    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
 
-		<title>{{ env('APP_NAME') }} | Login</title>
+		<title>{{ env('APP_NAME') }} | {{trans('common.login')}}</title>
 		
 		{!! Html::style('dashboard/css/style.css') !!}
 
@@ -29,7 +29,13 @@
 		<style type="text/css">
 			.auth-box .right{
 				background-image: url("assets/img/dept-5.jpg");
-			*/}
+			}
+			.custom_message{
+				color: #fff !important;
+				z-index: 11;
+				padding-top: 10px !important;
+				padding-bottom: 10px !important;
+			}
 		</style>
 		
 	    
@@ -49,14 +55,14 @@
 						<div class="content">
 							<div class="header">
 								<div class="logo text-center"><img src="assets/img/logo-dark.png" alt="Klorofil Logo"></div>
-								<p class="lead">Login to your account</p>
+								<p class="lead">{{trans('common.login_desc')}}</p>
 							</div>
 							{!! Form::open(['class'=>'form-auth-small','url'=>url('/dashboard/login'),'method'=>'post']) !!}
 								<div class="col-sm-12">
                                     <div class="form-group form-float">
                                         <div class="form-line">
                                             <input type="email" class="form-control" name="email">
-                                            <label class="form-label">Email</label>
+                                            <label class="form-label">{{trans('common.email')}}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -64,7 +70,7 @@
                                     <div class="form-group form-float">
                                         <div class="form-line">
                                             <input type="password" class="form-control" name="password">
-                                            <label class="form-label">Password</label>
+                                            <label class="form-label">{{trans('common.password')}}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -72,20 +78,20 @@
                                 <div class="form-group form-float">
                                 	<br>
                                     <input type="checkbox" id="checkbox" name="rember" value="1">
-                                    <label for="checkbox">Remember Me</label>
+                                    <label for="checkbox">{{trans('common.remember_me')}}</label>
                                 </div>
-								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
+								<button type="submit" class="btn btn-primary btn-lg btn-block">{{trans('common.LOGIN')}}</button>
 								<div class="bottom">
-									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">Forgot password?</a></span>
+									<span class="helper-text"><i class="fa fa-lock"></i> <a href="#">{{trans('common.forget_password')}}</a></span>
 								</div>
 							{!! Form::close() !!}
 						</div>
 					</div>
 					<div class="right">
 						<div class="overlay"></div>
-						<div class="content text">
-							<h1 class="heading">Clinic Management System</h1>
-							<p>by The FCIH Develovers</p>
+						<div class="content text custom_message">
+							<h1 class="heading">{{trans('common.login_message')}}</h1>
+							<p>{{trans('common.login_by')}}</p>
 						</div>
 					</div>
 					<div class="clearfix"></div>

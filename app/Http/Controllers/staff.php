@@ -11,6 +11,10 @@ class staff extends Controller
 	public function login_post(Request $req){
 		$rember = $req->has('rember') && $req->rember == 1 ?true:false;		
 		if( Auth::attempt(['email'=> $req->email,'password'=>$req->password],$rember)){
+			if(Auth::user()->block == 1){
+				Auth::guard('web')->logout();
+				return redirect('/dashboard/maintance');
+			}
 			if(Auth::user()->role == 1){
 				$second_role = get_second_role(Auth::user()->id);
 				if ($second_role == 1){

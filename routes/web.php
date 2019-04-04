@@ -25,8 +25,16 @@ Route::get('/dashboard/login',function(){
 Route::get('/dashboard/logout','staff@logout');
 Route::Post('/dashboard/login','staff@login_post');
 
+// for all staff
+Route::get('/lang/{lang}',function($lang){
+	$staff = App\User::where('id',auth()->user()->id)->first();
+	$staff->update(['lang'=> $lang]);
+	return back();
+})->middleware('IsStaff');
 
-
+Route::get('/dashboard/maintance',function(){
+	return view('dashboard.maintance');
+});
 
 
 

@@ -35,5 +35,16 @@
       Route::resource('/controll/employee','employees');
       Route::delete('employee/destory/all','employees@destory_all');
       
+      // controll website setting
+      Route::get('/website/setting','SettingController@index');
+      Route::post('/website/setting','SettingController@setting_save');
+
+       // controll Employee
+      Route::resource('/controll/blocked','blockes');
+      
+      
 	});
+
+
+  
 ?>

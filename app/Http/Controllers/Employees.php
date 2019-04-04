@@ -18,10 +18,10 @@ class Employees extends Controller
     public function index(EmployeeDatatable $datatabele)
     {
         if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
-        return $datatabele->render('dashboard.admin.Employee.index');
-    }elseif(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
-        return $datatabele->render('dashboard.hr.Employee.index');
-    }
+            return $datatabele->render('dashboard.admin.Employee.index');
+        }elseif(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
+            return $datatabele->render('dashboard.hr.Employee.index');
+        }
     }
 
     /**
@@ -32,10 +32,10 @@ class Employees extends Controller
     public function create()
     {    
        if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
-        return view('dashboard.admin.Employee.create');
-    }elseif (Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
-        return view('dashboard.hr.Employee.create');
-    }
+            return view('dashboard.admin.Employee.create');
+        }elseif (Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
+            return view('dashboard.hr.Employee.create');
+        }
 
     }
 
@@ -69,10 +69,10 @@ class Employees extends Controller
         Employee::create($data);
          session()->flash('add_success',"added is done");
          if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
-        return redirect('/dashboard/admin/controll/employee');
-    }elseif (Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
-        return redirect('/dashboard/hr/controll/employee');
-    }
+            return redirect('/dashboard/admin/controll/employee');
+        }elseif (Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
+            return redirect('/dashboard/hr/controll/employee');
+        }
                  
     }
 
@@ -95,19 +95,15 @@ class Employees extends Controller
      */
     public function edit($id){
          $employee =  Employee::where('employees.id',$id)->select('employees.id as employeeID',
-            'employees.name','employees.mobile','employees.address','employees.gender','employees.birthDate','employees.start_at','employees.end_at','employees.weekend','employees.salary','employees.title',
-        )->first();
-
-
+            'employees.name','employees.mobile','employees.address','employees.gender','employees.birthDate','employees.start_at','employees.end_at','employees.weekend','employees.salary','employees.title')->first();
          if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){ 
-        return view('dashboard.admin.employee.edit',compact('employee'));
-    }elseif(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
-        return view('dashboard.hr.employee.edit',compact('employee'));
-    }
-       }
+            return view('dashboard.admin.employee.edit',compact('employee'));
+         }elseif(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
+            return view('dashboard.hr.employee.edit',compact('employee'));
+        }
+   }
 
     public function update($id){
-
             $data = $this->validate(request(),[
             'name' =>'required|max:30|min:4',
             'mobile' => 'sometimes|nullable',
@@ -127,11 +123,11 @@ class Employees extends Controller
         
         session()->flash('update_success','update is done');
         if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
-        return redirect('/dashboard/admin/controll/employee'); 
-    }elseif (Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
-        return redirect('/dashboard/hr/controll/employee');
-    }
-       }
+            return redirect('/dashboard/admin/controll/employee'); 
+        }elseif (Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
+            return redirect('/dashboard/hr/controll/employee');
+        }
+   }
 
     /**
      * Remove the specified resource from storage.
@@ -143,9 +139,9 @@ class Employees extends Controller
         $secretary = Employee::find($id)->delete();
         session()->flash('delete_success',"Employee is deleted");
         if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
-        return redirect('dashboard/admin/controll/employee');
-    }elseif(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
-        return redirect('dashboard/hr/controll/employee');
-    }
-       }
+             return redirect('dashboard/admin/controll/employee');
+        }elseif(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
+            return redirect('dashboard/hr/controll/employee');
+        }
+   }
 }

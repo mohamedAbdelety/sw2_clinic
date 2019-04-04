@@ -66,5 +66,7 @@ class Kernel extends HttpKernel
         'IsAdminstrator' => \App\Http\Middleware\IsAdminstrator::class,
         'IsHR' => \App\Http\Middleware\IsHR::class,
         'IsFR' => \App\Http\Middleware\IsFR::class,
+        'maintance' => \App\Http\Middleware\maintance::class,
+        'lang' => \App\Http\Middleware\langmiddleware::class,
     ];
 }

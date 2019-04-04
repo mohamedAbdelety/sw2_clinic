@@ -103,7 +103,26 @@
 	            </ul>
 	        </li>
 	    </ul>
-	</li>                   
+	</li>
+
+
+
+
+
+
+
+
+	<li>
+	    <a href="{{url('/dashboard/admin/website/setting')}}">
+	        <i class="material-icons">settings</i>
+	        <span>{{trans('common.website_setting')}}</span>
+	    </a>
+	</li>
+
+
+
+
+
 </ul>
 @endif
 

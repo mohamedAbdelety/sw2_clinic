@@ -122,78 +122,55 @@
                     <!-- Tasks -->
                     <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
-                            <i class="material-icons">flag</i>
-                            <span class="label-count">9</span>
+                            <i class="material-icons">language</i>
                         </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">TASKS</li>
+                        <ul class="dropdown-menu" style="height: 250px">
+                            <li class="header">Languages</li>
                             <li class="body">
-                                <ul class="menu tasks">
+                                <ul class="menu tasks list">
                                     <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Footer display issue
-                                                <small>32%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%">
-                                                </div>
-                                            </div>
+                                        <a href="{{url('/lang/en')}}">
+                                            <h5>
+                                               English 
+                                                @if(Auth::user()->lang == 'en')
+                                                    <i class="material-icons pull-right">done</i>
+                                                @endif
+                                            </h5>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Make new buttons
-                                                <small>45%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                                </div>
-                                            </div>
+                                        <a href="{{url('/lang/fr')}}">
+                                            <h5>
+                                               Frensh
+                                               @if(Auth::user()->lang == 'fr')
+                                                    <i class="material-icons pull-right">done</i>
+                                                @endif
+                                            </h5>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Create new dashboard
-                                                <small>54%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%">
-                                                </div>
-                                            </div>
+                                        <a href="{{url('/lang/ar')}}">
+                                            <h5>
+                                               Arabic
+                                               @if(Auth::user()->lang == 'ar')
+                                                    <i class="material-icons pull-right">done</i>
+                                                @endif
+                                            </h5>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Solve transition issue
-                                                <small>65%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <h4>
-                                                Answer GitHub questions
-                                                <small>92%</small>
-                                            </h4>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-purple" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 92%">
-                                                </div>
-                                            </div>
+                                        <a href="{{url('/lang/es')}}">
+                                            <h5>
+                                               Spanish
+                                               @if(Auth::user()->lang == 'es')
+                                                    <i class="material-icons pull-right">done</i>
+                                                @endif
+                                            </h5>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="footer">
-                                <a href="javascript:void(0);">View All Tasks</a>
-                            </li>
+                            
                         </ul>
                     </li>
                     <!-- #END# Tasks -->
@@ -211,7 +188,11 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="{{url('dashboard/images/user.png')}}" width="48" height="48" alt="User" />
+                    @if(Auth::user()->image != null)
+                        <img src="{{ Storage::url(Auth::user()->image) }}" alt="AdminBSB - Profile Image" style="width:50px;height:50px" />
+                    @else
+                        <img src="{{url('dashboard/images/user.png')}}" alt="AdminBSB - Profile Image" style="width:50px;height:50px" />
+                    @endif
                 </div>
                 <div class="info-container">
 
