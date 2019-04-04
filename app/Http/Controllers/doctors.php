@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use Hash;
 use App\Doctor;
-use App\DataTables\FRDatatable;
+use App\DataTables\DoctorDatatable;
+use Auth;
 class doctors extends Controller
 {
     /**
@@ -14,9 +15,9 @@ class doctors extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(DoctorDatatable $datatable)
     {
-        echo "doctor add success";
+        return $datatable->render('dashboard.admin.doctor.index');
     }
 
     /**
@@ -93,11 +94,50 @@ class doctors extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id){
-
+         $doctor =  Doctor::join('staff', 'staff.id',   '=', 'doctors.staff_id')->where('staff.id',$id)->select('doctors.id as doctorsID','staff.id',
+            'staff.email','staff.name','staff.mobile','staff.address','staff.gender','staff.birthDate','staff.start_at','staff.end_at','staff.weekend','doctors.Dectsalary','doctors.experience','doctors.qualification','doctors.specail','doctors.position'
+        )->first();
+         if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){ 
+        return view('dashboard.admin.doctor.edit',compact('doctor'));
+    }elseif(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
+        return view('dashboard.hr.doctor.edit',compact('doctor'));
+    }
        }
 
     public function update($id){
 
+            $data = $this->validate(request(),[
+            'email' => 'required|email|unique:staff,email,'.$id,
+            'name' =>'required|max:30|min:4',
+            'mobile' => 'sometimes|nullable',
+            'address'=>'sometimes|nullable|min:5|max:50',
+            'start_at' => 'sometimes|nullable',
+            'end_at' => 'sometimes|nullable',
+            'birthDate' => 'required',
+            'weekend'=>'required',
+            'gender' => 'required',
+
+        ]);
+        $date_arr = explode("/",$data['birthDate']);
+        $data['birthDate'] =  $date_arr[2]."-".$date_arr[1]."-".$date_arr[0];
+        User::where('id',$id)->update($data);
+
+
+        $data2 = $this->validate(request(),[
+            'position' => 'required',
+            'experience' => 'required',
+            'Dectsalary'=>'required|numeric',
+            'qualification' => 'required',
+            'specail' => 'required'
+            
+        ]);
+        Doctor::where('id', request('doctorsID'))->update($data2);
+        session()->flash('update_success','update is done');
+        if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
+        return redirect('/dashboard/admin/controll/doctor'); 
+    }elseif (Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2) {
+        return redirect('/dashboard/hr/controll/doctor');
+    }
        }
 
     /**
@@ -107,5 +147,12 @@ class doctors extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
+        $doctor = User::find($id)->delete();
+        session()->flash('delete_success',"Doctor is deleted");
+        if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
+        return redirect('dashboard/admin/controll/doctor');
+    }elseif(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
+        return redirect('dashboard/hr/controll/doctor');
+    }
        }
 }

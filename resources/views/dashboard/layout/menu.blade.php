@@ -39,6 +39,14 @@
 	                </li>
 	            </ul>
 	        </li>
+	    </ul>
+	</li>
+	<li>
+	    <a href="javascript:void(0);" class="menu-toggle">
+	        <i class="material-icons">group</i>
+	        <span>Manage Doctor</span>
+	    </a>
+	    <ul class="ml-menu">
 	        <li>
 	            <a href="javascript:void(0);" class="menu-toggle">
 	                <span>Doctor</span>
@@ -46,6 +54,9 @@
 	            <ul class="ml-menu">
 	                <li>
 	                    <a href="{{url('/dashboard/admin/controll/doctor/create')}}">Add Doctor</a>
+	                </li>
+	                <li>
+	                    <a href="{{url('/dashboard/admin/controll/doctor')}}">Manage Doctor</a>
 	                </li>
 	            </ul>
 	        </li>
@@ -57,14 +68,44 @@
 
 @if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2)
 <ul class="list">
-	<li class="header">MAIN NAVIGATION For HR</li>                 
+	<li class="header">MAIN NAVIGATION For HR</li>
+	<li class="active">
+	    <a href="{{url('/dashboard/hr/index')}}">
+	        <i class="material-icons">dashboard</i>
+	        <span>Dashboard</span>
+	    </a>
+	</li>
+	<li>
+	    <a href="javascript:void(0);" class="menu-toggle">
+	        <i class="material-icons">group</i>
+	        <span>Manage Doctor</span>
+	    </a>
+	    <ul class="ml-menu">
+	        <li>
+	            <a href="javascript:void(0);" class="menu-toggle">
+	                <span>Doctor</span>
+	            </a>
+	            <ul class="ml-menu">
+	                <li>
+	                    <a href="{{url('/dashboard/hr/controll/doctor')}}">Manage Doctor</a>
+	                </li>
+	            </ul>
+	        </li>
+	    </ul>
+	</li>                 
 </ul>
 @endif
 
 
 @if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 3)
 <ul class="list">
-	<li class="header">MAIN NAVIGATION For FR</li>                 
+	<li class="header">MAIN NAVIGATION For FR</li>  
+	<li class="active">
+	    <a href="{{url('/dashboard/fr/index')}}">
+	        <i class="material-icons">dashboard</i>
+	        <span>Dashboard</span>
+	    </a>
+	</li>               
 </ul>
 @endif
 

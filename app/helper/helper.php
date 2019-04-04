@@ -5,7 +5,7 @@
   			return 'Admin';	
   		} else if($secondRole == 2){
   			return 'HR';	
-  		} else if($secondRole == 2){
+  		} else if($secondRole == 3){
   			return 'FR';
   		}
   	}else if($role == 2){
