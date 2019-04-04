@@ -70,7 +70,9 @@
     ];
   }
 
- 
+ function get_settings(){
+  return \App\Setting::orderBy('id','desc')->first();
+ }
 
 
 

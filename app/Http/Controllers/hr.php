@@ -93,7 +93,7 @@ class hr extends Controller
      */
     public function edit($id){
 
-        $hr =  Admin::join('staff', 'staff.id',   '=', 'admins.staff_id')->where('staff.id',$id)->select('admins.id as adminID','staff.id',
+        $hr =  Admin::join('staff','staff.id', '=', 'admins.staff_id')->where('staff.id',$id)->select('admins.id as adminID','staff.id',
             'staff.email','staff.name','staff.mobile','staff.address','staff.gender','staff.birthDate','staff.start_at','staff.end_at','staff.weekend','admins.salary','admins.position'
         )->first();
         return view('dashboard.admin.hr.edit',compact('hr'));

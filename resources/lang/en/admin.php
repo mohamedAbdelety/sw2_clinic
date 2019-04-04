@@ -89,7 +89,36 @@
 		'add_departments_link' => 'Add Department',
 		'users_link' => 'Users',
 		'admins_link' => 'Admins',
-		
+		//////////////////////////////////////////////////////////////////////////////////
+		/////////////////////// settings/////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////
+		'setting_title'=>'Websit Setting',
+		'setting_sitename'=>'website name',
+		'setting_desc'=>'website Description',
+		'setting_keywords'=>'website keywords',
+		'setting_logo'=>'website logo',
+		'setting_mainlang'=>'Main language',
+		'setting_submit'=>'Save Setting',
+		'setting_logo'=>'Website Logo',
+		'setting_maintance_frontend'=>'Message Maintance For Frontend',
+		'setting_maintance_backend'=>'Message Maintance For Backend',
+		'setting_status'=>'Website Status',
+		'open'=>'Open',
+		'close'=>'Close',
+		'close_patient'=>'Close For Frontend',
+		'close_hr'=>'Close For HR',
+		'close_fr'=>'Close For FR',
+		'close_doctor'=>'Close For Doctor',
+		'close_secratry'=>'Close For Secratry',
+		'close_specific'=>'close For Specific Mails',
+		'add_blockmail'=>'Add Mail',
+		'block_mail'=>'Block Mails',
+		'success_setting_msg' => 'website setting is updated',
+
+		//////////////////////////////////////////////////////////////////////////////////
+		/////////////////////// blockers/////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////
+		'blockers_title'=>'Blocked Staff',		
 
 	];
 ?>

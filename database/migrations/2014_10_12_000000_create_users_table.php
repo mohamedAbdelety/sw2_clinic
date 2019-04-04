@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->time('end_at');
             $table->enum('weekend',['friday','saturday','sunday','monday','tuesday','thursday','wednsday'])->nullable();
             $table->enum('lang',['en','ar','fr','es'])->nullable();
-
+            $table->enum('block',['0','1'])->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

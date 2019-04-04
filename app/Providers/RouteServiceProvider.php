@@ -58,7 +58,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::middleware('web')
+        Route::middleware('web','lang')
              ->namespace($this->namespace)
              ->group(base_path('routes/web.php'));
     }
@@ -69,7 +69,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapDoctorRoutes()
     {
-        Route::middleware('web','IsStaff','IsDoctor')
+        Route::middleware('web','IsStaff','IsDoctor','lang','maintance')
              ->namespace($this->namespace)
              ->group(base_path('routes/doctorroutes.php'));
     }
@@ -77,7 +77,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapHrRoutes()
     {
-        Route::middleware('web','IsStaff','IsAdmin','IsHR')
+        Route::middleware('web','IsStaff','IsAdmin','IsHR','lang','maintance')
              ->namespace($this->namespace)
              ->group(base_path('routes/hrroutes.php'));
     }
@@ -85,7 +85,7 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapFrRoutes()
     {
-        Route::middleware('web','IsStaff','IsAdmin','IsFR')
+        Route::middleware('web','IsStaff','IsAdmin','IsFR','lang','maintance')
              ->namespace($this->namespace)
              ->group(base_path('routes/frroutes.php'));
     }
@@ -93,13 +93,13 @@ class RouteServiceProvider extends ServiceProvider
 
     protected function mapAdminRoutes()
     {
-        Route::middleware('web','IsStaff','IsAdmin','IsAdminstrator')
+        Route::middleware('web','IsStaff','IsAdmin','IsAdminstrator','lang')
              ->namespace($this->namespace)
              ->group(base_path('routes/adminroutes.php'));
     }
     protected function mapSecratryRoutes()
     {
-        Route::middleware('web','IsStaff','IsSecratry')
+        Route::middleware('web','IsStaff','IsSecratry','lang','maintance')
              ->namespace($this->namespace)
              ->group(base_path('routes/secratryroutes.php'));
     }
