@@ -61,7 +61,49 @@
 	            </ul>
 	        </li>
 	    </ul>
-	</li>                    
+	</li> 
+	<li>
+	    <a href="javascript:void(0);" class="menu-toggle">
+	        <i class="material-icons">group</i>
+	        <span>Manage Secretary</span>
+	    </a>
+	    <ul class="ml-menu">
+	        <li>
+	            <a href="javascript:void(0);" class="menu-toggle">
+	                <span>Secretary</span>
+	            </a>
+	            <ul class="ml-menu">
+	                <li>
+	                    <a href="{{url('/dashboard/admin/controll/secretary/create')}}">Add Secretary</a>
+	                </li>
+	                <li>
+	                    <a href="{{url('/dashboard/admin/controll/secretary')}}">Manage Secretary</a>
+	                </li>
+	            </ul>
+	        </li>
+	    </ul>
+	</li>
+	<li>
+	    <a href="javascript:void(0);" class="menu-toggle">
+	        <i class="material-icons">group</i>
+	        <span>Manage Employee</span>
+	    </a>
+	    <ul class="ml-menu">
+	        <li>
+	            <a href="javascript:void(0);" class="menu-toggle">
+	                <span>Employee</span>
+	            </a>
+	            <ul class="ml-menu">
+	                <li>
+	                    <a href="{{url('/dashboard/admin/controll/employee/create')}}">Add Employee</a>
+	                </li>
+	                <li>
+	                    <a href="{{url('/dashboard/admin/controll/employee')}}">Manage Employee</a>
+	                </li>
+	            </ul>
+	        </li>
+	    </ul>
+	</li>                   
 </ul>
 @endif
 
@@ -92,7 +134,50 @@
 	            </ul>
 	        </li>
 	    </ul>
-	</li>                 
+	</li> 
+	<li>
+	    <a href="javascript:void(0);" class="menu-toggle">
+	        <i class="material-icons">group</i>
+	        <span>Manage Secretary</span>
+	    </a>
+	    <ul class="ml-menu">
+	        <li>
+	            <a href="javascript:void(0);" class="menu-toggle">
+	                <span>Secretary</span>
+	            </a>
+	            <ul class="ml-menu">
+	                <li>
+	                    <a href="{{url('/dashboard/hr/controll/secretary/create')}}">Add Secretary</a>
+	                </li>
+	                <li>
+	                    <a href="{{url('/dashboard/hr/controll/secretary')}}">Manage Secretary</a>
+	                </li>
+	            </ul>
+	        </li>
+	    </ul>
+	</li>
+	<li>
+	    <a href="javascript:void(0);" class="menu-toggle">
+	        <i class="material-icons">group</i>
+	        <span>Manage Employee</span>
+	    </a>
+	    <ul class="ml-menu">
+	        <li>
+	            <a href="javascript:void(0);" class="menu-toggle">
+	                <span>Employee</span>
+	            </a>
+	            <ul class="ml-menu">
+	                <li>
+	                    <a href="{{url('/dashboard/hr/controll/employee/create')}}">Add Employee</a>
+	                </li>
+	                <li>
+	                    <a href="{{url('/dashboard/hr/controll/employee')}}">Manage Employee</a>
+	                </li>
+	            </ul>
+	        </li>
+	    </ul>
+	</li>
+
 </ul>
 @endif
 
