@@ -17,6 +17,7 @@
 
 	    <!-- Bootstrap Core Css -->
 	    <!-- Bootstrap Core Css -->
+	    {!! Html::style('frontend/font-awesome/css/font-awesome.min.css') !!}
 	    {!! Html::style('dashboard/plugins/bootstrap/css/bootstrap.css') !!}
 	    {!! Html::style('dashboard/plugins/node-waves/waves.css') !!}
 	    {!! Html::style('dashboard/plugins/animate-css/animate.css') !!}

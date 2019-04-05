@@ -99,7 +99,62 @@
                             </div>
                           </div>
                         </div>
-                    
+
+                    <div class="col-md-12">
+                        <b>Facebook Page</b>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                            <div class="form-line">
+                                {!! Form::text('facebook',get_settings()->facebook,['class'=>'form-control']) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>Twitter Page</b>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                            <div class="form-line">
+                                {!! Form::text('twitter',get_settings()->twitter,['class'=>'form-control']) !!}
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-md-12">
+                        <b>Instgram Page</b>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                            <div class="form-line">
+                                {!! Form::text('instgram',get_settings()->instgram,['class'=>'form-control']) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>location</b>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">location_on</i>
+                            </span>
+                            <div class="form-line">
+                                {!! Form::text('location',get_settings()->location,['class'=>'form-control']) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <b>clinic phone</b>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="material-icons">phone</i>
+                            </span>
+                            <div class="form-line">
+                                {!! Form::text('phone',get_settings()->phone,['class'=>'form-control']) !!}
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-md-12">
                         <b>{{trans('admin.setting_maintance_frontend')}}</b>
                         <div class="input-group">

@@ -68,5 +68,6 @@ class Kernel extends HttpKernel
         'IsFR' => \App\Http\Middleware\IsFR::class,
         'maintance' => \App\Http\Middleware\maintance::class,
         'lang' => \App\Http\Middleware\langmiddleware::class,
+        'frontendmaintance' => \App\Http\Middleware\frontendMiddleware::class,
     ];
 }

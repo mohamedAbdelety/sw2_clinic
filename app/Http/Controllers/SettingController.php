@@ -28,6 +28,11 @@ class SettingController extends Controller
             'keywords'=>'required|min:10',
             'main_lang' => 'required|in:en,ar,fr,es',
             'message_maintance_frontend'=>'required|min:20',
+            'facebook'=>'required',
+            'twitter'=>'required',
+            'instgram'=>'required',
+            'location'=>'required',
+            'phone'=>'required',
             'message_maintance_backend'=>'required|min:20',
     	]);
     	if(request('status') == 8){

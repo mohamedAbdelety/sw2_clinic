@@ -13,9 +13,11 @@
 
 Route::get('/', function () {
     return view('welcome');
+})->middleware('frontendmaintance');
+
+Route::get('/frontendmaintance', function () {
+ return view('frontendmaintance');
 });
-
-
 
 // for staff 
 Route::get('/dashboard/login',function(){

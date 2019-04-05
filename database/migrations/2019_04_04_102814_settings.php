@@ -29,6 +29,11 @@ class Settings extends Migration
             // 7 close for secratry
             // 8 close for specific mail
             $table->enum('status',['1','2','3','4','5','6','7'])->default('1');
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instgram')->nullable();
+            $table->string('location')->nullable();
+            $table->string('phone')->nullable();
             $table->longtext('message_maintance_frontend')->nullable();
             $table->longtext('message_maintance_backend')->nullable();
             $table->timestamps();
