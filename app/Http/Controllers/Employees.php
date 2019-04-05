@@ -95,7 +95,11 @@ class Employees extends Controller
      */
     public function edit($id){
          $employee =  Employee::where('employees.id',$id)->select('employees.id as employeeID',
-            'employees.name','employees.mobile','employees.address','employees.gender','employees.birthDate','employees.start_at','employees.end_at','employees.weekend','employees.salary','employees.title')->first();
+
+            'employees.name','employees.mobile','employees.address','employees.gender','employees.birthDate','employees.start_at','employees.end_at','employees.weekend','employees.salary','employees.title'
+        )->first();
+
+
          if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){ 
             return view('dashboard.admin.employee.edit',compact('employee'));
          }elseif(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){

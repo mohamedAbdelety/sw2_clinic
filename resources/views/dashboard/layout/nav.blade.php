@@ -201,6 +201,7 @@
                         @if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2) HR @endif
                         @if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 3) FR @endif
                         @if(Auth::user()->role == 3) Secratry @endif
+                        @if(Auth::user()->role == 2) Doctor @endif
                     </div>
                     <div class="email">{{Auth::user()->email}}</div>
                     <div class="btn-group user-helper-dropdown">
@@ -217,6 +218,9 @@
                             @endif
                             @if(Auth::user()->role == 3)
                             <li><a href="{{url('/dashboard/secratry/profile')}}"><i class="material-icons">person</i>Profile</a></li>
+                            @endif
+                            @if(Auth::user()->role == 2)
+                            <li><a href="{{url('/dashboard/doctor/profile')}}"><i class="material-icons">person</i>Profile</a></li>
                             @endif
                             <li role="separator" class="divider"></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
