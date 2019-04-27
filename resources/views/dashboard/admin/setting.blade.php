@@ -8,7 +8,7 @@
 
 
 @section('pageTitle')
- clinic | {{trans('admin.setting_title')}}
+  {{get_settings()->sitename}} | {{trans('admin.setting_title')}}
 @endsection
 
 
@@ -134,7 +134,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <b>location</b>
+                        <b>{{trans('admin.setting_location')}}</b>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">location_on</i>
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <b>clinic phone</b>
+                        <b>{{trans('admin.setting_phone')}}</b>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">phone</i>
@@ -178,7 +178,7 @@
                         </div>
                     </div>
 
-                        {!! Form::submit(trans('admin.setting_submit'),['class'=>'btn btn-primary']) !!}<a href="{{url('/dashboard/admin/controll/blocked')}}" style="margin-left: 10px">Blocked Staff</a>
+                        {!! Form::submit(trans('admin.setting_submit'),['class'=>'btn btn-primary']) !!}<a href="{{url('/dashboard/admin/controll/blocked')}}" style="margin-left: 10px">{{trans('admin.block_staff')}}</a>
                     
                 {{Form::close()}}
 

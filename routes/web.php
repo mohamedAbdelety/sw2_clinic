@@ -39,6 +39,13 @@ Route::get('/dashboard/maintance',function(){
 });
 
 
+Route::get('/test',function(){
+	return view('test');
+});
+
+
+
+
 
 
 	

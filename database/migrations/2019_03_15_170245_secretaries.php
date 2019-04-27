@@ -17,7 +17,9 @@ class Secretaries extends Migration
             $table->increments('id');
             $table->float('salary')->default(0.0);
             $table->text('qualification')->nullable();
-
+            $table->integer('last_month')->default(0);
+            $table->integer('last_year')->default(0);
+            $table->integer('month_number')->default(0);
             $table->integer('doctor_id')->unsigned()->nullable();
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade')->onUpdate('cascade');
 

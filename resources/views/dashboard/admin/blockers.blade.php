@@ -5,7 +5,7 @@
 
 
 @section('pageTitle')
- {{trans('admin.blockers_title')}}
+ {{get_settings()->sitename}} | {{trans('admin.blockers_title')}}
 @endsection
 
 

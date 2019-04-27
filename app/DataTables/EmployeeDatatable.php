@@ -45,11 +45,11 @@ class EmployeeDatatable extends DataTable
     public static function lang(){
         $langJson = [
             "sProcessing" => trans('admin.processing'),
-            "sLengthMenu" => trans('admin.select_menu_statment'),
-            "sZeroRecords" => trans('admin.no_result'),
-            "sEmptyTable" => trans('admin.no_data'),
-            "sInfo" => trans('admin.end_state'),
-            "sInfoEmpty" => trans('admin.end_state_empty'),
+            "sLengthMenu" => trans('admin.select_menu_statment_employee'),
+            "sZeroRecords" => trans('admin.no_result_employee'),
+            "sEmptyTable" => trans('admin.no_data_employee'),
+            "sInfo" => trans('admin.end_state_employee'),
+            "sInfoEmpty" => trans('admin.end_state_empty_employee'),
             "sInfoFiltered" => "",
             "sInfoPostFix" => "",
             "sSearch" => trans('admin.search_data'),
@@ -85,19 +85,14 @@ class EmployeeDatatable extends DataTable
                     ->parameters([
                         'dom' => 'Blfrtip',
                         'LengthMenu'=>[[10,25,50,100,-1],[10,25,50,100,'All Admins']],
-                        'buttons' => [//'csv', 'excel', 'pdf', 'print', 'reset', 'reload'
-                            ['extend' => 'print', 'className'=>'btn btn-primary datatables_btn','text'=>'<i class="fa fa-print" style="margin-right:4px"></i> '.trans('admin.print')],
-                            ['extend' => 'csv', 'className'=>'btn btn-info datatables_btn','text'=>'<i class="fa fa-file" style="margin-right:4px"></i> '.trans('admin.csv')],
-                            ['extend' => 'postExcel', 'className'=>'btn btn-success datatables_btn','text'=>'<i class="fa fa-file" style="margin-right:4px"></i> Excel'],
-                            ['extend' => 'pdf', 'className'=>'btn btn-warning datatables_btn','text'=>'<i class="fa fa-file" style="margin-right:4px"></i>PDF'],
-                            ['className'=>'btn btn-primary datatables_btn','text'=>'<i class="fa fa-plus" style="margin-right:4px"></i> '.trans('admin.create_admin_button'),"action" => "function(){
+                       'buttons' => [//'csv', 'excel', 'pdf', 'print', 'reset', 'reload'
+                            ['extend' => 'print', 'className'=>'btn btn-info datatables_btn','text'=>'<i class="fa fa-print" style="margin-right:4px"></i> '.trans('admin.print')],
+                            ['className'=>'btn btn-success datatables_btn','text'=>'<i class="fa fa-plus" style="margin-right:4px"></i> '.trans('admin.create_employee_button'),"action" => "function(){
                                     window.location.href = '".\URL::current()."/create';
                             }"
                             ],
-                            ['className'=>'btn btn-danger datatables_btn delBTN_all','text'=>'<i class="fa fa-trash" style="margin-right:4px"></i> '.trans('admin.delete_admins_button')],
-                             ['extend' => 'reload', 'className'=>'btn btn-default datatables_btn','text'=>'<i class="fa fa-refresh" style="margin-right:4px"></i>'],
+                             ['extend' => 'reload', 'className'=>'btn btn-danger datatables_btn','text'=>'<i class="fa fa-refresh" style="margin-right:4px"></i>'],
                         ],
-
                         'initComplete' => " function(){
                             this.api().columns([2,3,4]).every(function(){
                                 var column = this;
@@ -129,21 +124,21 @@ class EmployeeDatatable extends DataTable
             [
                 'name'=>'name',
                 'data'=>'name',
-                'title'=> "Name"  
+                'title'=> trans('admin.employee_name_title')  
             ],
             [
                 'name'=>'mobile',
                 'data'=>'mobile',
-                'title'=> 'Mobile' 
+                'title'=> trans('admin.hr_mobile_title') 
             ],
             [
                 'name'=>'salary',
                 'data'=>'salary',
-                'title'=> 'Salary' 
+                'title'=> trans('admin.employee_salary_title') 
             ],
             ['name'=>'title',
              'data'=>'title',
-             'title'=>'Title'
+             'title'=>trans('admin.employee_title_title')
              ],
             [
                 'name'=>'action',

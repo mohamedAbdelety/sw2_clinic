@@ -5,7 +5,7 @@
 
 
 @section('pageTitle')
- {{trans('admin.countries_panel')}}
+ {{get_settings()->sitename}} | {{trans('common.manage_hr')}}
 @endsection
 
 
@@ -16,7 +16,7 @@
         <div class="card">
            <div class="header">
                 <h2 style="margin-top: 7px;">
-                    <i class="material-icons pull-left" style="margin-top: -4px">person_add</i><span class="pull-left" style="margin-left: 10px">Manage HR</span>
+                    <i class="material-icons pull-left" style="margin-top: -4px">person_add</i><span class="pull-left" style="margin-left: 10px">{{trans('common.manage_hr')}}</span>
                 </h2>
                 <br>
            </div>

@@ -12,8 +12,9 @@
 	    <link rel="icon" href="{{Storage::url(get_settings()->logo)}}" type="image/x-icon">
 
 	    <!-- Google Fonts -->
-	    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+	    {!! Html::style('dashboard/icon.css') !!}
+	    {!! Html::style('dashboard/css.css') !!}
+	   
 
 	    <!-- Bootstrap Core Css -->
 	    <!-- Bootstrap Core Css -->
@@ -31,8 +32,16 @@
 	    {!! Html::style('dashboard/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css') !!}
 	    {!! Html::style('dashboard/css/style.css') !!}
 	    {!! Html::style('dashboard/css/themes/all-themes.css') !!}
-	   
-
+	  	{!! Html::style('cus/css/select2.min.css') !!}
+ 		{!! Html::style('cus/sweetalert/sweetalert.css') !!}
+ 		{!! Html::script('cus/sweetalert/sweetalert.min.js') !!}
+ 		{!! Html::script('cus/sweetalert/dialogs.js') !!}
+	   	<style>
+	   		.dt-buttons{
+	   			margin-right: 80px;
+	   		}
+	   	</style>
+	   	
       <title>@yield('pageTitle')</title>
       @yield('header')
     </head>
@@ -53,12 +62,4 @@
 	        </div>
     	</div>
     	<div class="overlay"></div>
-    	<div class="search-bar">
-	        <div class="search-icon">
-	            <i class="material-icons">search</i>
-	        </div>
-	        <input type="text" placeholder="START TYPING...">
-	        <div class="close-search">
-	            <i class="material-icons">close</i>
-	        </div>
-    	</div>
+    	

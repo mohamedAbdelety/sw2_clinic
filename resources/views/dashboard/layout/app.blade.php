@@ -7,31 +7,10 @@
 
 
 
-
-
-
-
-
-
-
     <section class="content">
         @include('dashboard.layout.message')
         @yield('content')
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

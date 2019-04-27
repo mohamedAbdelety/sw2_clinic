@@ -70,7 +70,7 @@ class hr extends Controller
         $admin_data['role'] = 2;
         $admin_data['staff_id'] = $id;
         Admin::create($admin_data);
-        session()->flash('add_success',"added is done");
+        session()->flash('add_success',trans('admin.hr_add_success_msg'));
         return redirect('/dashboard/admin/controll/hr');        
     }
 
@@ -124,7 +124,7 @@ class hr extends Controller
             
         ]);
         Admin::where('id', request('adminID'))->update($data2);
-        session()->flash('update_success','update is done');
+        session()->flash('update_success',trans('admin.hr_update_success_msg'));
         return redirect('/dashboard/admin/controll/hr'); 
     }
 
@@ -136,7 +136,7 @@ class hr extends Controller
      */
     public function destroy($id){
         $hr = User::find($id)->delete();
-        session()->flash('delete_success',"Hr is deleted");
+        session()->flash('delete_success',trans('admin.hr_delete_success_msg'));
         return redirect('dashboard/admin/controll/hr'); 
     }
 }

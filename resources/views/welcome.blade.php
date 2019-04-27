@@ -43,7 +43,7 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-6 col-md-6">
-              <p class="bold text-left">24 Hours - 7 Days </p>
+              <p class="bold text-left">24 Hours - 7 Days</p>
             </div>
             <div class="col-sm-6 col-md-6">
               <p class="bold text-right">Call us now {{get_settings()->phone}}</p>

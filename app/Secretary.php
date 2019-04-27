@@ -9,6 +9,6 @@ class Secretary extends Model
     protected $table = 'secretaries';
     public $timestamps = false;
     protected $fillable = [
-        'salary','qualification','staff_id','doctor_id'
+        'salary','qualification','last_month','last_year','month_number','staff_id','doctor_id'
     ];
 }

@@ -45,12 +45,12 @@ class SecretaryDatatable extends DataTable
 
     public static function lang(){
         $langJson = [
-            "sProcessing" => trans('admin.processing'),
-            "sLengthMenu" => trans('admin.select_menu_statment'),
-            "sZeroRecords" => trans('admin.no_result'),
-            "sEmptyTable" => trans('admin.no_data'),
-            "sInfo" => trans('admin.end_state'),
-            "sInfoEmpty" => trans('admin.end_state_empty'),
+           "sProcessing" => trans('admin.processing'),
+            "sLengthMenu" => trans('admin.select_menu_statment_secretary'),
+            "sZeroRecords" => trans('admin.no_result_secretary'),
+            "sEmptyTable" => trans('admin.no_data_secretary'),
+            "sInfo" => trans('admin.end_state_secretary'),
+            "sInfoEmpty" => trans('admin.end_state_empty_secretary'),
             "sInfoFiltered" => "",
             "sInfoPostFix" => "",
             "sSearch" => trans('admin.search_data'),
@@ -87,20 +87,16 @@ class SecretaryDatatable extends DataTable
                         'dom' => 'Blfrtip',
                         'LengthMenu'=>[[10,25,50,100,-1],[10,25,50,100,'All Admins']],
                         'buttons' => [//'csv', 'excel', 'pdf', 'print', 'reset', 'reload'
-                            ['extend' => 'print', 'className'=>'btn btn-primary datatables_btn','text'=>'<i class="fa fa-print" style="margin-right:4px"></i> '.trans('admin.print')],
-                            ['extend' => 'csv', 'className'=>'btn btn-info datatables_btn','text'=>'<i class="fa fa-file" style="margin-right:4px"></i> '.trans('admin.csv')],
-                            ['extend' => 'postExcel', 'className'=>'btn btn-success datatables_btn','text'=>'<i class="fa fa-file" style="margin-right:4px"></i> Excel'],
-                            ['extend' => 'pdf', 'className'=>'btn btn-warning datatables_btn','text'=>'<i class="fa fa-file" style="margin-right:4px"></i>PDF'],
-                            ['className'=>'btn btn-primary datatables_btn','text'=>'<i class="fa fa-plus" style="margin-right:4px"></i> '.trans('admin.create_admin_button'),"action" => "function(){
+                            ['extend' => 'print', 'className'=>'btn btn-info datatables_btn','text'=>'<i class="fa fa-print" style="margin-right:4px"></i> '.trans('admin.print')],
+                            ['className'=>'btn btn-success datatables_btn','text'=>'<i class="fa fa-plus" style="margin-right:4px"></i> '.trans('admin.create_secretary_button'),"action" => "function(){
                                     window.location.href = '".\URL::current()."/create';
                             }"
                             ],
-                            ['className'=>'btn btn-danger datatables_btn delBTN_all','text'=>'<i class="fa fa-trash" style="margin-right:4px"></i> '.trans('admin.delete_admins_button')],
-                             ['extend' => 'reload', 'className'=>'btn btn-default datatables_btn','text'=>'<i class="fa fa-refresh" style="margin-right:4px"></i>'],
+                             ['extend' => 'reload', 'className'=>'btn btn-danger datatables_btn','text'=>'<i class="fa fa-refresh" style="margin-right:4px"></i>'],
                         ],
 
                         'initComplete' => " function(){
-                            this.api().columns([2,3,4]).every(function(){
+                            this.api().columns([1,2,3]).every(function(){
                                 var column = this;
                                 var input = document.createElement('input');
                                 $(input).appendTo($(column.footer()).empty()).on('keyup',function(){

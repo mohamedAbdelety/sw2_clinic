@@ -30,6 +30,49 @@
   }
 
 
+  function get_doctorid_forsecratry($staff_id){
+    $secratry = App\Secretary::where('staff_id',$staff_id)->first();
+    return $secratry->doctor_id;
+  }
+
+  function get_doctorname_forsecratry($staff_id){
+    $secratry = App\Secretary::where('staff_id',$staff_id)->first();
+    $doctor = App\Doctor::where('id',$secratry->doctor_id)->first();
+    $staff = App\User::where('id',$doctor->staff_id)->first();
+    return $staff->name;
+  }
+
+  function all_patients(){
+    $arr = App\Patient::pluck('name','id');
+    return $arr;  
+  }
+
+   function get_doctorprice_forsecratry($staff_id){
+    $secratry = App\Secretary::where('staff_id',$staff_id)->first();
+    $doctor = App\Doctor::where('id',$secratry->doctor_id)->first();
+    return $doctor->Dectsalary;
+  }
+
+   function get_doctorby_id($id){
+    $doctor = App\Doctor::where('id',$id)->first();
+    $staff = App\User::where('id',$doctor->staff_id)->first();
+    return $staff->name;
+  }
+
+
+  function get_doctorid($staff_id){
+    $doctor = App\Doctor::where('staff_id',$staff_id)->first();
+    return $doctor->id;
+  }
+
+  function get_staffid_for_doctorid($doctor_id){
+    $doctor = App\Doctor::where('id',$doctor_id)->first();
+    return $doctor->staff_id;
+  }
+
+
+
+
   function get_admin($staff_id){
   	$admin = App\Admin::where('staff_id',$staff_id)->first();
   	return $admin;

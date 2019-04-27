@@ -25,4 +25,9 @@ class blockes extends Controller
         return redirect('/dashboard/admin/controll/blocked'); 
     }
 
+    public function active_all(){
+        User::where('block','1')->update(['block'=>'0']);
+        return redirect('/dashboard/admin/controll/blocked');
+    }
+
 }

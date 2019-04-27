@@ -67,7 +67,7 @@ class Employees extends Controller
         $date_arr = explode("/",$data['birthDate']);
         $data['birthDate'] =  $date_arr[2]."-".$date_arr[1]."-".$date_arr[0];
         Employee::create($data);
-         session()->flash('add_success',"added is done");
+         session()->flash('add_success',trans('admin.employee_add_success_msg'));
          if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
             return redirect('/dashboard/admin/controll/employee');
         }elseif (Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
@@ -125,7 +125,7 @@ class Employees extends Controller
         $data['birthDate'] =  $date_arr[2]."-".$date_arr[1]."-".$date_arr[0];
         Employee::where('id',$id)->update($data);
         
-        session()->flash('update_success','update is done');
+        session()->flash('update_success',trans('admin.employee_update_success_msg'));
         if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
             return redirect('/dashboard/admin/controll/employee'); 
         }elseif (Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
@@ -141,7 +141,7 @@ class Employees extends Controller
      */
     public function destroy($id){
         $secretary = Employee::find($id)->delete();
-        session()->flash('delete_success',"Employee is deleted");
+        session()->flash('delete_success',trans('admin.employee_delete_success_msg'));
         if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
              return redirect('dashboard/admin/controll/employee');
         }elseif(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){

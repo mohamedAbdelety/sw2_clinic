@@ -9,6 +9,6 @@ class Doctor extends Model
     protected $table = 'doctors';
     public $timestamps = false;
     protected $fillable = [
-        'Dectsalary','experience','position','staff_id','qualification','specail'
+        'Dectsalary','experience','position','payedDetections','staff_id','qualification','specail'
     ];
 }

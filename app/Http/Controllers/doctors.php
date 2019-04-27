@@ -72,7 +72,7 @@ class doctors extends Controller
         ]);
         $doctor_data['staff_id'] = $id;
         Doctor::create($doctor_data);
-        session()->flash('add_success',"added is done");
+        session()->flash('add_success',trans('admin.doctor_add_success_msg'));
         return redirect('/dashboard/admin/controll/doctor');        
     }
 
@@ -132,7 +132,7 @@ class doctors extends Controller
             
         ]);
         Doctor::where('id', request('doctorsID'))->update($data2);
-        session()->flash('update_success','update is done');
+        session()->flash('update_success',trans('admin.doctor_update_success_msg'));
         if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
         return redirect('/dashboard/admin/controll/doctor'); 
     }elseif (Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2) {
@@ -148,7 +148,7 @@ class doctors extends Controller
      */
     public function destroy($id){
         $doctor = User::find($id)->delete();
-        session()->flash('delete_success',"Doctor is deleted");
+        session()->flash('delete_success',trans('admin.doctor_delete_success_msg'));
         if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
         return redirect('dashboard/admin/controll/doctor');
     }elseif(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){

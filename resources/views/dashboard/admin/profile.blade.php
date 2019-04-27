@@ -101,18 +101,13 @@
                         <div class="body">
                             <div>
                                 <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-                                    <li role="presentation"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">Profile Settings</a></li>
+                                    <li role="presentation" class="active"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">Profile Settings</a></li>
                                     <li role="presentation"><a href="#change_password_settings" aria-controls="settings" role="tab" data-toggle="tab">Change Password</a></li>
                                     <li role="presentation"><a href="#change_image" aria-controls="change_image" role="tab" data-toggle="tab">Change image</a></li>
                                 </ul>
 
                                 <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane fade in active" id="home">
-                                        
-                                        
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade in" id="profile_settings">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="profile_settings">
                                        
                                         {{Form::open(['novalidate'=>'novalidate','id'=>'form_validation','url' => 'dashboard/admin/change/account','method'=>'POST','class'=>'form-horizontal demo-masked-input'])}}
                                             <div class="form-group">

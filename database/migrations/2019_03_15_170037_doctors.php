@@ -18,7 +18,7 @@ class Doctors extends Migration
             $table->float('Dectsalary')->default(0.0);
             $table->tinyInteger('experience')->default(0);
             $table->text('qualification')->nullable();
-
+            $table->integer('payedDetections')->default(0);
             $table->enum('specail',['Dentist','Surgeon','Psychiatrist','Internist','pediatrician','Dermatologist','Anesthetist']);
             $table->enum('position',['specialist','Advisory']);
 

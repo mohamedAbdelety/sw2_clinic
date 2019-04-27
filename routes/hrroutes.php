@@ -1,9 +1,7 @@
 <?php
 	Route::group(['prefix'=>'/dashboard/hr'], function(){
 		
-		Route::get('/index',function(){
-			return view('dashboard.hr.index');
-		});
+		Route::get('/index','reportController@hr_report');
 		
 		Route::get('/profile',function(){
 			return view('dashboard.hr.profile');

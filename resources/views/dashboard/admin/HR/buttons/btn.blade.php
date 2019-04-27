@@ -10,7 +10,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Delete HR</h4>
+        <h4 class="modal-title">{{trans('admin.delete_hr')}}</h4>
       </div>
       <div class="modal-body">
         <p class="alert alert-warning">{{ trans('admin.are_sure_single',['name'=>$name]) }}</p>

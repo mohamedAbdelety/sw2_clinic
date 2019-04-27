@@ -19,7 +19,7 @@ class IsDoctor
             if(Auth::user()->role == 1){
                 return redirect('/dashboard/admin/index');
             }else if(Auth::user()->role == 3){
-                return redirect('/dashboard/secratry/index');
+                return redirect('/dashboard/secratry/profile');
             }
         }
         return $next($request);

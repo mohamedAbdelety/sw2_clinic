@@ -5,7 +5,7 @@
 
 
 @section('pageTitle')
- {{trans('admin.countries_panel')}}
+ {{get_settings()->sitename}} | {{trans('common.manage_employee')}}
 @endsection
 
 
@@ -16,12 +16,12 @@
         <div class="card">
            <div class="header">
                 <h2 style="margin-top: 7px;">
-                    <i class="material-icons pull-left" style="margin-top: -4px">person_add</i><span class="pull-left" style="margin-left: 10px">Manage Employee</span>
+                    <i class="material-icons pull-left" style="margin-top: -4px">person_add</i><span class="pull-left" style="margin-left: 10px">{{trans('common.manage_employee')}}</span>
                 </h2>
                 <br>
            </div>
            <div class="body">
-                {!! $dataTable->table(['class'=>'dataTable table table-border table-hover'],true) !!}
+                {!! $dataTable->table(['id'=>'example1','class'=>'dataTable table table-border table-hover'],true) !!}
             
         </div>
     </div>
@@ -52,6 +52,12 @@
           "autoWidth": false
         });
         });
+    </script>
+    <script>
+      setInterval( function () {
+        //alert('www');
+        $('#example1').DataTable().ajax.reload();
+      }, 5000 );
     </script>
     {!! $dataTable->scripts() !!}
 @endsection

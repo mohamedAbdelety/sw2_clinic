@@ -69,7 +69,7 @@ class fr extends Controller
         $admin_data['role'] = 3;
         $admin_data['staff_id'] = $id;
         Admin::create($admin_data);
-        session()->flash('add_success',"added is done");
+        session()->flash('add_success',trans('admin.fr_add_success_msg'));
         return redirect('/dashboard/admin/controll/fr');        
     }
 
@@ -123,7 +123,7 @@ class fr extends Controller
             
         ]);
         Admin::where('id', request('adminID'))->update($data2);
-        session()->flash('update_success','update is done');
+        session()->flash('update_success',trans('admin.fr_update_success_msg'));
         return redirect('/dashboard/admin/controll/fr'); 
     }
 
@@ -135,7 +135,7 @@ class fr extends Controller
      */
     public function destroy($id){
         $fr = User::find($id)->delete();
-        session()->flash('delete_success',"Fr is deleted");
+        session()->flash('delete_success',trans('admin.fr_delete_success_msg'));
         return redirect('dashboard/admin/controll/fr'); 
     }
 }

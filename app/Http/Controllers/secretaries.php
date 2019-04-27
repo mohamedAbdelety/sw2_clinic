@@ -95,7 +95,7 @@ class secretaries extends Controller
 
         $secretary_data['staff_id'] = $id;
          Secretary::create($secretary_data);
-         session()->flash('add_success',"added is done");
+         session()->flash('add_success',trans('admin.secretary_add_success_msg'));
          if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
         return redirect('/dashboard/admin/controll/secretary');
     }elseif (Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){
@@ -171,7 +171,7 @@ class secretaries extends Controller
         $secretary_data['doctor_id'] = $DocID[0];
 
         Secretary::where('id', request('secretaryID'))->update($secretary_data);
-        session()->flash('update_success','update is done');
+        session()->flash('update_success',trans('admin.secretary_update_success_msg'));
         if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
         return redirect('/dashboard/admin/controll/secretary'); 
     }elseif (Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2) {
@@ -187,7 +187,7 @@ class secretaries extends Controller
      */
     public function destroy($id){
         $secretary = User::find($id)->delete();
-        session()->flash('delete_success',"Secretary is deleted");
+        session()->flash('delete_success',trans('admin.secretary_delete_success_msg'));
         if(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 1){
         return redirect('dashboard/admin/controll/secretary');
     }elseif(Auth::user()->role == 1 && get_second_role(Auth::user()->id) == 2){

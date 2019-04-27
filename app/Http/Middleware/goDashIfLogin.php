@@ -21,7 +21,7 @@ class goDashIfLogin
             }else if(Auth::user()->role == 2){
                 return redirect('/dashboard/doctor/index');
             }else if(Auth::user()->role == 3){
-                return redirect('/dashboard/secratry/index');
+                return redirect('/dashboard/secratry/profile');
             }
         }
         return $next($request);

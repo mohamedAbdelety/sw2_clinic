@@ -23,6 +23,9 @@ class Employees extends Migration
             $table->date('birthDate')->nullable();
             $table->time('start_at');
             $table->time('end_at');
+            $table->integer('last_month')->default(0);
+            $table->integer('last_year')->default(0);
+            $table->integer('month_number')->default(0);
             $table->enum('weekend',['friday','saturday','sunday','monday','tuesday','thursday','wednsday'])->nullable();
             $table->enum('title',['security','nurse','office boy','cleaning','techniql','reception','call center','other']);
             $table->timestamps();

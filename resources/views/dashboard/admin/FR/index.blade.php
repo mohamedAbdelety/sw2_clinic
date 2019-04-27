@@ -5,7 +5,7 @@
 
 
 @section('pageTitle')
- Manage FR
+ {{get_settings()->sitename}} | {{trans('common.manage_fr')}}
 @endsection
 
 
@@ -16,7 +16,7 @@
         <div class="card">
            <div class="header">
                 <h2 style="margin-top: 7px;">
-                    <i class="material-icons pull-left" style="margin-top: -4px">person_add</i><span class="pull-left" style="margin-left: 10px">Manage FR</span>
+                    <i class="material-icons pull-left" style="margin-top: -4px">person_add</i><span class="pull-left" style="margin-left: 10px">{{trans('common.manage_fr')}}</span>
                 </h2>
                 <br>
            </div>

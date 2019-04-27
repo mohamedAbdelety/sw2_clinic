@@ -8,7 +8,7 @@
 
 
 @section('pageTitle')
- clinic | Edit Secretary
+ {{get_settings()->sitename}} | {{trans('admin.edit_secratry')}}
 @endsection
 
 
@@ -20,7 +20,7 @@
        <div class="card">
            <div class="header">
                 <h2 style="margin-top: 7px;">
-                    <i class="material-icons pull-left" style="margin-top: -4px">person_add</i><span class="pull-left" style="margin-left: 10px">Edit Secretary</span>
+                    <i class="material-icons pull-left" style="margin-top: -4px">person_add</i><span class="pull-left" style="margin-left: 10px"> {{trans('admin.edit_secratry')}}</span>
                 </h2>
                 <br>
            </div>
@@ -28,7 +28,7 @@
                 {{Form::open(['novalidate'=>'novalidate','id'=>'form_validation','url' => 'dashboard/admin/controll/secretary/'.$secretary->id,'method'=>'put','class'=>'demo-masked-input'])}}
                     <input type="hidden" name="secretaryID" value="{{$secretary->secretaryID}}">
                     <div class="col-md-12">
-                        <b>User Name</b>
+                        <b>{{trans('common.user_name')}}</b>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">person</i>
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <b>Email Address</b>
+                        <b>{{trans('common.email')}}</b>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">email</i>
@@ -50,7 +50,7 @@
                         </div>
                     </div>  
                     <div class="col-md-12">
-                        <b>Birth Date</b>
+                        <b>{{trans('common.birth_date')}}</b>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">date_range</i>
@@ -69,7 +69,7 @@
                         </div>                    
                     </div>
                     <div class="col-md-12">
-                        <b>Salary</b>
+                        <b>{{trans('common.salary')}}</b>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">euro_symbol</i>
@@ -90,7 +90,7 @@
                     </div>
                     
                     <div class="col-md-12">
-                        <b>Qualification</b>
+                        <b>{{trans('common.quail')}}</b>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">note</i>
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <b>Mobile</b>
+                        <b>{{trans('common.mobile')}}</b>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">phone_iphone</i>
@@ -113,7 +113,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        <b>Address</b>
+                        <b>{{trans('common.address')}}</b>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">location_on</i>
@@ -125,7 +125,7 @@
                     </div>
                      
                     <div class="col-md-6">
-                        <b>Start_at</b>
+                        <b>{{trans('common.start_at')}}</b>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">alarm</i>
@@ -136,7 +136,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <b>End_at</b>
+                        <b>{{trans('common.end_at')}}</b>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <i class="material-icons">alarm</i>
@@ -147,14 +147,14 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                            {!! Form::select('gender',['male'=>'male','female'=>'female'],$secretary->gender,['class'=>'form-control show-tick']) !!}
+                            {!! Form::select('gender',['male'=>trans('common.male'),'female'=>trans('common.female')],$secretary->gender,['class'=>'form-control show-tick']) !!}
                     </div>
                     <div class="col-md-6">
                         {!! Form::select('weekend',days(),$secretary->weekend,['class'=>'form-control show-tick']) !!}
                     </div>
                     
                    
-                        {!! Form::submit("Save Secretary",['class'=>'btn btn-primary']) !!}
+                        {!! Form::submit(trans('common.save_secratry'),['class'=>'btn btn-primary']) !!}
                     
                 {{Form::close()}}      
            </div>

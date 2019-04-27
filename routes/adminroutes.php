@@ -1,9 +1,7 @@
 <?php
 	Route::group(['prefix'=>'/dashboard/admin'], function(){
 		
-		Route::get('/index',function(){
-			return view('dashboard.admin.index');
-		});
+		Route::get('/index','reportController@admin_report');
 
 		Route::get('/test',function(){
 			return view('dashboard.admin.hr.edit');
@@ -39,8 +37,9 @@
       Route::get('/website/setting','SettingController@index');
       Route::post('/website/setting','SettingController@setting_save');
 
-       // controll Employee
+       // controll blocked
       Route::resource('/controll/blocked','blockes');
+      Route::get('/controll/blocked/active/all','blockes@active_all');
       
       
 	});
